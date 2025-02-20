@@ -70,21 +70,13 @@ export default defineNuxtModule<ModuleOptions>({
   },
   setup(options, nuxt) {
     const { resolve } = createResolver(import.meta.url);
-    
-    nuxt.options.runtimeConfig.posthog = defu(
-      nuxt.options.runtimeConfig.posthog,
-      {
-        publicKey: '',
-        host: '',
-      }
-    );
 
     // Public runtimeConfig
     nuxt.options.runtimeConfig.public.posthog = defu<ModuleOptions, ModuleOptions[]>(
       nuxt.options.runtimeConfig.public.posthog,
       {
-        publicKey: options.publicKey || nuxt.options.runtimeConfig.posthog.publicKey,
-        host: options.host || nuxt.options.runtimeConfig.posthog.host,
+        publicKey: options.publicKey || nuxt.options.runtimeConfig.posthog.ApiKey,
+        host: options.host || nuxt.options.runtimeConfig.posthog.ApiHost,
         capturePageViews: options.capturePageViews,
         capturePageLeaves: options.capturePageLeaves,
         clientOptions: options.clientOptions,
