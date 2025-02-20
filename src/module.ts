@@ -75,8 +75,8 @@ export default defineNuxtModule<ModuleOptions>({
     nuxt.options.runtimeConfig.public.posthog = defu<ModuleOptions, ModuleOptions[]>(
       nuxt.options.runtimeConfig.public.posthog,
       {
-        publicKey: options.publicKey || nuxt.options.runtimeConfig.posthog.ApiKey,
-        host: options.host || nuxt.options.runtimeConfig.posthog.ApiHost,
+        publicKey: options.publicKey || nuxt.options.runtimeConfig.posthog.apiKey,
+        host: options.host || nuxt.options.runtimeConfig.posthog.apiHost,
         capturePageViews: options.capturePageViews,
         capturePageLeaves: options.capturePageLeaves,
         clientOptions: options.clientOptions,
